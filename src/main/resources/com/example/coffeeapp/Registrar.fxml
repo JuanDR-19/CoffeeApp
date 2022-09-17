@@ -8,17 +8,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.registrarCotroller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.registrarCotroller">
    <children>
       <Text layoutX="117.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar" wrappingWidth="73.7626953125">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="correoTextR" layoutX="123.0" layoutY="165.0" />
+      <TextField fx:id="usuarioTextR" layoutX="123.0" layoutY="165.0" />
       <TextField fx:id="passTextR" layoutX="123.0" layoutY="222.0" />
       <Button fx:id="botonFinR" layoutX="122.0" layoutY="282.0" mnemonicParsing="false" onAction="#finalizarRegistro" text="Finalizar" />
-      <Text layoutX="49.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" />
+      <Text layoutX="58.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
       <Text layoutX="37.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
       <Button fx:id="volver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#volverinicio" text="Regresar" textFill="#861010">
          <font>

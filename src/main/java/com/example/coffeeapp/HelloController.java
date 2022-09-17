@@ -35,7 +35,7 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
         try {
             Parent root = loader.load();
-            registrarCotroller cont = loader.getController();
+            coffeeAppController cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
             stageReg.initModality(Modality.APPLICATION_MODAL);

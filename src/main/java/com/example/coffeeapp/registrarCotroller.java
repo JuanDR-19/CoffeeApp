@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class registrarCotroller {
 
@@ -13,7 +14,7 @@ public class registrarCotroller {
     private Button botonFinR;
 
     @FXML
-    private TextField correoTextR;
+    private TextField usuarioTextR;
 
     @FXML
     private ImageView imagenregistro;
@@ -30,11 +31,14 @@ public class registrarCotroller {
     @FXML
     void finalizarRegistro(ActionEvent event) {
 
+
+
     }
 
     @FXML
     void volverinicio(ActionEvent event) {
-
+        Stage volverInicioS =  (Stage) volver.getScene().getWindow();
+        volverInicioS.close();
     }
 
 }
