@@ -20,8 +20,7 @@ public class registrarCotroller {
     @FXML
     void finalizarRegistro(ActionEvent event)  {
 
-        Stage stageFinReg= new Stage();
-        stageFinReg.close();
+
 
     }
 
