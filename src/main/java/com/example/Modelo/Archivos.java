@@ -14,10 +14,8 @@ public class Archivos {
         Path path = Paths.get("Usuarios.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Usuario item:usuarios) {
-
                     writer.write(item.getUserName()+";"+item.getPassword());
                     writer.write("\n");
-
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -40,7 +38,8 @@ public class Archivos {
                     String user= token.nextToken();
                     String pass= token.nextToken();
                     Usuario nuevouser= new Usuario(user,pass);
-                    usuarios.add(nuevouser);
+                    if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevouser.getUserName())))
+                        usuarios.add(nuevouser);
                 }
             }
         } catch (IOException e) {
@@ -48,11 +47,5 @@ public class Archivos {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 
 }

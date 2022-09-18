@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,7 +35,9 @@ public class HelloController {
     @FXML
     private TextField user;
 
-    private List<Usuario> usuarios = new ArrayList<Usuario>();
+    List<Usuario> usuarios = new ArrayList<Usuario>();
+
+
 
     public HelloController() throws FileNotFoundException {
          Archivos.llenarListaUsuario(usuarios);
@@ -49,7 +52,7 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
             try {
                 Parent root = loader.load();
-                CoffeeAppController cont = loader.getController();
+                //CoffeeAppController cont = loader.getController();
                 Scene sceneReg = new Scene(root);
                 Stage stageReg = new Stage();
                 stageReg.initModality(Modality.APPLICATION_MODAL);
@@ -76,6 +79,8 @@ public class HelloController {
             RegistrarCotroller cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
+            usuarios = cont.getUsuarios();
+           // sceneReg.setUserData(usuarios);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

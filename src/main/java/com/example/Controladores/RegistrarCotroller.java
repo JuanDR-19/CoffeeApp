@@ -5,18 +5,20 @@ import com.example.Modelo.Archivos;
 import com.example.Modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistrarCotroller {
+public class RegistrarCotroller{
 
     @FXML
     private Button botonFinR;
@@ -36,6 +38,10 @@ public class RegistrarCotroller {
     @FXML
     private Button volver;
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
     List<Usuario> usuarios = new ArrayList<Usuario>();
 
 
@@ -46,7 +52,7 @@ public class RegistrarCotroller {
         usuario.setUserName(usuarioTextR.getText());
         usuario.setPassword(passTextR.getText());
         Archivos.llenarListaUsuario(usuarios);
-        if(!usuarios.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
+        if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
             usuarios.add(usuario);
             usuarioTextR.setText("");
             passTextR.setText("");
