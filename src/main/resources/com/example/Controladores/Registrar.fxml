@@ -17,7 +17,7 @@
          </font>
       </Text>
       <TextField fx:id="usuarioTextR" layoutX="123.0" layoutY="165.0" />
-      <Button fx:id="botonFinR" layoutX="122.0" layoutY="282.0" mnemonicParsing="false" onAction="#finalizarRegistro" text="Finalizar" />
+      <Button fx:id="botonFinR" layoutX="122.0" layoutY="282.0" mnemonicParsing="false" onAction="#finalizarRegistro" text="Registrarse" />
       <Text layoutX="58.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
       <Text layoutX="37.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
       <Button fx:id="volver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#volverinicio" text="Regresar" textFill="#861010">
