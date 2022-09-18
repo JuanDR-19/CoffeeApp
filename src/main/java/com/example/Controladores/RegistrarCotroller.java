@@ -7,10 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class RegistrarCotroller {
     private ImageView imagenregistro2;
 
     @FXML
-    private TextField passTextR;
+    private PasswordField passTextR;
 
     @FXML
     private Button volver;
@@ -38,11 +40,12 @@ public class RegistrarCotroller {
 
 
     @FXML
-    void finalizarRegistro(ActionEvent event) {
+    void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
 
         Usuario usuario = new Usuario();
         usuario.setUserName(usuarioTextR.getText());
         usuario.setPassword(passTextR.getText());
+        Archivos.llenarListaUsuario(usuarios);
         if(!usuarios.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
             usuarios.add(usuario);
             usuarioTextR.setText("");
