@@ -52,9 +52,12 @@ public class RegistrarCotroller {
             passTextR.setText("");
             Archivos.guardarListaUArchivos(usuarios);
         }else{
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("El usuario ya existe");
-            alert.show();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fallo al crear un usuario");
+            alert.setHeaderText("No se pudo crear el usuario");
+            alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
+            alert.setResizable(true);
+            alert.showAndWait();
         }
 
     }
