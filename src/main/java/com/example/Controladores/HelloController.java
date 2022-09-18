@@ -1,13 +1,11 @@
-package com.example.coffeeapp;
+package com.example.Controladores;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -35,7 +33,7 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
         try {
             Parent root = loader.load();
-            coffeeAppController cont = loader.getController();
+            CoffeeAppController cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
             stageReg.initModality(Modality.APPLICATION_MODAL);
@@ -51,7 +49,7 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Registrar.fxml"));
         try {
             Parent root = loader.load();
-            registrarCotroller cont = loader.getController();
+            RegistrarCotroller cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
             stageReg.initModality(Modality.APPLICATION_MODAL);

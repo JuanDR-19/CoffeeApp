@@ -11,6 +11,6 @@ module com.example.coffeeapp {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.coffeeapp to javafx.fxml;
-    exports com.example.coffeeapp;
+    opens com.example.Controladores to javafx.fxml;
+    exports com.example.Controladores;
 }

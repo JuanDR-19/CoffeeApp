@@ -1,4 +1,4 @@
-package com.example.coffeeapp;
+package com.example.Controladores;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
