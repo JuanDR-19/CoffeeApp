@@ -28,12 +28,12 @@ public class CoffeeAppController {
 
     @FXML
     void accesoMetodos(ActionEvent event) {
-
+        //crear el ingreso a las opciones de los metodos
     }
 
     @FXML
     void ingresoRecetas(ActionEvent event) {
-
+        //crear el ingreso a las opciones de las recetas
     }
 
 }
