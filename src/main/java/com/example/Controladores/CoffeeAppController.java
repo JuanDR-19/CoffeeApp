@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class CoffeeAppController {
 
@@ -13,6 +14,9 @@ public class CoffeeAppController {
 
     @FXML
     private ImageView inicio1;
+
+    @FXML
+    private Button cerrarSesion;
 
     @FXML
     private ListView<?> listaPreparaciones;
@@ -26,6 +30,11 @@ public class CoffeeAppController {
     @FXML
     private ImageView recetasimg;
 
+    @FXML
+    void CerrarSesion(ActionEvent event) {
+        Stage CerrarSesionx =  (Stage) cerrarSesion.getScene().getWindow();
+        CerrarSesionx.close();
+    }
     @FXML
     void accesoMetodos(ActionEvent event) {
         //crear el ingreso a las opciones de los metodos

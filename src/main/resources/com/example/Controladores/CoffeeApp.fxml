@@ -53,6 +53,7 @@
                         <Image url="@../../../images/metodos.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="cerrarSesion" layoutX="285.0" layoutY="20.0" mnemonicParsing="false" onAction="#CerrarSesion" text="Cerrar Sesion" textFill="#8d1b1b" />
                </children>
             </AnchorPane>
         </items>

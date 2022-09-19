@@ -1,5 +1,2 @@
-kkk;77
-ooo;99
-yyy;22
-uuu;44
-qqqq;555
+jose;1234
+kkk;777
