@@ -6,19 +6,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
 
-<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.example.Controladores.AnadirCafesController">
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.AnadirCafesController">
   <panes>
     <TitledPane animated="false" text="generalidades">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
+                  <Circle fill="#a18262" layoutX="474.0" layoutY="108.0" radius="174.0" stroke="BLACK" strokeType="INSIDE" />
                   <TextField fx:id="nameField" layoutX="48.0" layoutY="90.0" promptText="ingrese el nombre" />
                   <TextField fx:id="MarcaField" layoutX="380.0" layoutY="90.0" promptText="Ingrese la marca" />
                   <TextField fx:id="PrecioField" layoutX="219.0" layoutY="221.0" promptText="Ingrese el precio (en COP)" />
                   <Label layoutX="106.0" layoutY="60.0" text="Nombre" />
                   <Label layoutX="446.0" layoutY="60.0" text="Marca" />
                   <Label layoutX="285.0" layoutY="194.0" text="Precio" />
+                  <Ellipse fill="#a18262" layoutX="90.0" layoutY="256.0" radiusX="31.0" radiusY="45.0" stroke="BLACK" strokeType="INSIDE" />
+                  <CubicCurve controlX1="137.0" controlX2="6.0" controlY1="-72.0" controlY2="-8.0" endX="69.0" endY="4.0" fill="#a18262" layoutX="21.0" layoutY="297.0" startX="69.0" startY="-86.0" stroke="BLACK" />
                </children></AnchorPane>
       </content>
     </TitledPane>
@@ -26,6 +32,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
+                  <Circle fill="#a18262" layoutX="115.0" layoutY="245.0" radius="157.0" stroke="BLACK" strokeType="INSIDE" />
                   <Button fx:id="AnadirCafe" layoutX="272.0" layoutY="288.0" mnemonicParsing="false" onAction="#AnadirCafe" text="Añadir" />
                   <TextField fx:id="SaborField" layoutX="60.0" layoutY="88.0" promptText="Ingrese el sabor" />
                   <TextField fx:id="AromaField" layoutX="379.0" layoutY="88.0" promptText="Ingrese el aroma" />
@@ -33,6 +40,8 @@
                   <Label layoutX="125.0" layoutY="63.0" text="sabor" />
                   <Label layoutX="442.0" layoutY="63.0" text="aroma" />
                   <Label layoutX="280.0" layoutY="175.0" text="cuerpo" />
+                  <Ellipse fill="#a18262" layoutX="497.0" layoutY="245.0" radiusX="37.0" radiusY="45.0" stroke="BLACK" strokeType="INSIDE" />
+                  <CubicCurve controlX1="81.0" controlX2="-67.0" controlY1="-71.0" controlY2="-3.0" endX="6.0" endY="7.0" fill="#a18262" layoutX="491.0" layoutY="283.0" startX="6.0" startY="-83.0" stroke="BLACK" />
                </children></AnchorPane>
       </content>
     </TitledPane>
