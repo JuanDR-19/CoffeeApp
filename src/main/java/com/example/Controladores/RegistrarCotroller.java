@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class RegistrarCotroller{
 
@@ -47,38 +48,35 @@ public class RegistrarCotroller{
 
     @FXML
     void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
-
         Usuario usuario = new Usuario();
-        boolean haypass=false;
-        usuario.setUserName(usuarioTextR.getText());
-        if(passTextR.getText()==""){
+        if(!Objects.equals(usuarioTextR.getText(), "") && !Objects.equals(passTextR.getText(), "")){
+            usuario.setUserName(usuarioTextR.getText());
+            usuario.setPassword(passTextR.getText());
+            Archivos.llenarListaUsuario(usuarios);
+
+            if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
+                usuarios.add(usuario);
+                usuarioTextR.setText("");
+                passTextR.setText("");
+                Archivos.guardarListaUArchivos(usuarios);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Fallo al crear un usuario");
+                alert.setHeaderText("No se pudo crear el usuario");
+                alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
+                alert.setResizable(true);
+                alert.showAndWait();
+            }
+        }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Fallo al crear un usuario");
             alert.setHeaderText("No se pudo crear el usuario");
-            alert.setContentText("No ingresó contraseña");
+            alert.setContentText("No ingresó contraseña o usuario");
             alert.setResizable(true);
             alert.showAndWait();
-        }else{
-            usuario.setPassword(passTextR.getText());
-            haypass=true;
-        }
-        if(haypass){
-            Archivos.llenarListaUsuario(usuarios);
         }
 
-        if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
-            usuarios.add(usuario);
-            usuarioTextR.setText("");
-            passTextR.setText("");
-            Archivos.guardarListaUArchivos(usuarios);
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Fallo al crear un usuario");
-            alert.setHeaderText("No se pudo crear el usuario");
-            alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
-            alert.setResizable(true);
-            alert.showAndWait();
-        }
+
 
     }
 
