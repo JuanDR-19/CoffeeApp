@@ -9,6 +9,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -29,7 +33,10 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="botonrecetas" layoutX="227.0" layoutY="110.0" mnemonicParsing="false" onAction="#ingresoRecetas" text="cafes" textFill="#030303">
+                  <Ellipse fill="#a18262" layoutX="417.0" layoutY="202.0" radiusX="100.0" radiusY="118.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#a18262" layoutX="359.0" layoutY="355.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Line endX="164.70709228515625" layoutX="227.0" layoutY="61.0" startX="-228.0" stroke="#a18262" />
+                  <Button fx:id="botonrecetas" layoutX="243.0" layoutY="146.0" mnemonicParsing="false" onAction="#ingresoRecetas" text="cafes" textFill="#030303">
                      <effect>
                         <Glow />
                      </effect>
@@ -42,18 +49,20 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Button fx:id="metodos" layoutX="223.0" layoutY="262.0" mnemonicParsing="false" onAction="#accesoMetodos" text="metodos" />
-                  <ImageView fx:id="recetasimg" fitHeight="121.0" fitWidth="171.0" layoutX="33.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="metodos" layoutX="233.0" layoutY="311.0" mnemonicParsing="false" onAction="#accesoMetodos" text="metodos" />
+                  <ImageView fx:id="recetasimg" fitHeight="121.0" fitWidth="171.0" layoutX="33.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/recetas.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="metodosimg" fitHeight="127.0" fitWidth="138.0" layoutX="36.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="metodosimg" fitHeight="127.0" fitWidth="138.0" layoutX="36.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/metodos.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="cerrarSesion" layoutX="285.0" layoutY="20.0" mnemonicParsing="false" onAction="#CerrarSesion" text="Cerrar Sesion" textFill="#8d1b1b" />
+                  <Ellipse fill="#553d2a" layoutX="328.0" layoutY="252.0" radiusX="39.0" radiusY="49.0" stroke="BLACK" strokeType="INSIDE" />
+                  <CubicCurve controlX1="64.0" controlX2="-9.0" controlY1="32.0" controlY2="100.0" endX="34.0" endY="109.0" fill="#553d2a" layoutX="294.0" layoutY="192.0" startX="34.0" startY="11.0" stroke="BLACK" />
                </children>
             </AnchorPane>
         </items>
