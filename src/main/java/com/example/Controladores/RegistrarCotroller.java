@@ -49,9 +49,23 @@ public class RegistrarCotroller{
     void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
 
         Usuario usuario = new Usuario();
+        boolean haypass=false;
         usuario.setUserName(usuarioTextR.getText());
-        usuario.setPassword(passTextR.getText());
-        Archivos.llenarListaUsuario(usuarios);
+        if(passTextR.getText()==""){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fallo al crear un usuario");
+            alert.setHeaderText("No se pudo crear el usuario");
+            alert.setContentText("No ingresó contraseña");
+            alert.setResizable(true);
+            alert.showAndWait();
+        }else{
+            usuario.setPassword(passTextR.getText());
+            haypass=true;
+        }
+        if(haypass){
+            Archivos.llenarListaUsuario(usuarios);
+        }
+
         if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
             usuarios.add(usuario);
             usuarioTextR.setText("");
