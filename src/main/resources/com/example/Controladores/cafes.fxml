@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.CoffeeListController">
    <children>
       <Button fx:id="botonVolver" layoutX="35.0" layoutY="29.0" mnemonicParsing="false" onAction="#regresarInicio" text="Volver" textFill="#972828" />
@@ -23,5 +22,6 @@
          </image>
       </ImageView>
       <Label layoutX="109.0" layoutY="78.0" text="Tu lista de cafes" />
+      <Button fx:id="AnadirBoton" layoutX="104.0" layoutY="350.0" mnemonicParsing="false" onAction="#AnadirCafe" text="Añadir un café" />
    </children>
 </AnchorPane>
