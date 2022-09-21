@@ -1,5 +1,5 @@
 package com.example.Controladores;
-
+import com.example.Modelo.cafes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,7 +30,10 @@ public class AnadirCafesController {
 
     @FXML
     void AnadirCafe(ActionEvent event) {
-
+        String nombre= nameField.getText();
+        String marca= MarcaField.getText();
+        String precio= PrecioField.getText();
+        cafes nuevo= new cafes(nombre,marca,precio);
     }
 
 }
