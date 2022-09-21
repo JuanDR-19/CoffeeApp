@@ -7,7 +7,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurve?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.HelloController">
    <children>
@@ -26,13 +27,15 @@
                <children>
                   <Button fx:id="inicioSesion" layoutX="165.0" layoutY="304.0" mnemonicParsing="false" onAction="#iniciarsesion" text="Iniciar Sesion" />
                   <Button fx:id="registro" layoutX="47.0" layoutY="304.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
-                  <PasswordField fx:id="password" layoutX="69.0" layoutY="229.0" promptText="Contraseña" />
+                  <PasswordField fx:id="password" layoutX="69.0" layoutY="214.0" promptText="Contraseña" />
                   <TextField fx:id="user" layoutX="69.0" layoutY="174.0" promptText="usuario" />
                   <ImageView fitHeight="110.0" fitWidth="138.0" layoutX="104.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/granos.jpg" />
                      </image>
                   </ImageView>
+                  <Circle fill="#a18262" layoutX="143.0" layoutY="473.0" radius="135.0" stroke="#a18262" strokeType="INSIDE" />
+                  <CubicCurve controlX1="-50.0" controlX2="-76.0" controlY1="-100.0" controlY2="70.0" endX="247.0" endY="-2.0" fill="#a18262" layoutX="157.0" layoutY="268.0" startX="-424.0" startY="10.0" stroke="#a26162" />
                </children>
             </AnchorPane>
         </items>
