@@ -29,7 +29,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="botonrecetas" layoutX="227.0" layoutY="110.0" mnemonicParsing="false" onAction="#ingresoRecetas" text="recetas">
+                  <Button fx:id="botonrecetas" layoutX="227.0" layoutY="110.0" mnemonicParsing="false" onAction="#ingresoRecetas" text="cafes" textFill="#030303">
                      <effect>
                         <Glow />
                      </effect>
