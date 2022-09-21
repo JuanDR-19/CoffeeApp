@@ -50,6 +50,7 @@ public class RegistrarCotroller{
     void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
         Usuario usuario = new Usuario();
         if(!Objects.equals(usuarioTextR.getText(), "") && !Objects.equals(passTextR.getText(), "")){
+
             usuario.setUserName(usuarioTextR.getText());
             usuario.setPassword(passTextR.getText());
             Archivos.llenarListaUsuario(usuarios);

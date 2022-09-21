@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HelloController {
 
@@ -46,29 +47,37 @@ public class HelloController {
 
     @FXML
     void iniciarsesion(ActionEvent event) {
-
-      if(usuarios.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
-              )&& p.getPassword().equalsIgnoreCase(password.getText()))){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
-            try {
-                Parent root = loader.load();
-                //CoffeeAppController cont = loader.getController();
-                Scene sceneReg = new Scene(root);
-                Stage stageReg = new Stage();
-                stageReg.initModality(Modality.APPLICATION_MODAL);
-                stageReg.setScene(sceneReg);
-                stageReg.showAndWait();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        if(!Objects.equals(user.getText(), "") && !Objects.equals(password.getText(), "")){
+            if(usuarios.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
+            )&& p.getPassword().equalsIgnoreCase(password.getText()))){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
+                try {
+                    Parent root = loader.load();
+                    //CoffeeAppController cont = loader.getController();
+                    Scene sceneReg = new Scene(root);
+                    Stage stageReg = new Stage();
+                    stageReg.initModality(Modality.APPLICATION_MODAL);
+                    stageReg.setScene(sceneReg);
+                    stageReg.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Fallo al iniciar sesion");
+                alert.setHeaderText("No se pudo iniciar sesion");
+                alert.setContentText("Usuario o contraseña incorrecto");
+                alert.setResizable(true);
+                alert.showAndWait();
             }
         }else{
-          Alert alert = new Alert(Alert.AlertType.INFORMATION);
-          alert.setTitle("Fallo al iniciar sesion");
-          alert.setHeaderText("No se pudo iniciar sesion");
-          alert.setContentText("Usuario o contraseña incorrecto");
-          alert.setResizable(true);
-          alert.showAndWait();
-      }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fallo al iniciar sesion");
+            alert.setHeaderText("No se pudo iniciar sesion");
+            alert.setContentText("No ingresó usuario o contraseña");
+            alert.setResizable(true);
+            alert.showAndWait();
+        }
     }
 
     @FXML
