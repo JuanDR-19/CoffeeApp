@@ -89,7 +89,6 @@ public class HelloController {
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
             usuarios = cont.getUsuarios();
-           // sceneReg.setUserData(usuarios);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

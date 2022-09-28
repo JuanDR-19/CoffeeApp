@@ -1,6 +1,7 @@
 package com.example.Controladores;
 
-import com.example.Modelo.cafes;
+import com.example.Modelo.Cafes;
+import com.example.Modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import java.io.IOException;
 
 public class CoffeeListController {
 
@@ -34,14 +34,17 @@ public class CoffeeListController {
     @FXML
     private ImageView cafe2;
 
+    List<Cafes> cafesList = new ArrayList<Cafes>();
+
     @FXML
     void AnadirCafe(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnadirCafes.fxml"));
         try {
             Parent root = loader.load();
-            //CoffeeAppController cont = loader.getController();
+            AnadirCafesController cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
+            cafesList = cont.cafesList;
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

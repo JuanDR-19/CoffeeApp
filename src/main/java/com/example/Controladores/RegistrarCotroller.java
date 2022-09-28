@@ -77,8 +77,6 @@ public class RegistrarCotroller{
             alert.showAndWait();
         }
 
-
-
     }
 
     @FXML

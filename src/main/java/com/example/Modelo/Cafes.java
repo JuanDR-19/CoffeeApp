@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
-public class cafes {
+public class Cafes {
 
     private String name;
     private String sabores;
@@ -15,6 +14,10 @@ public class cafes {
     private String cuerpo;
     private String precio;
     private String marca;
+
+    public Cafes() {
+
+    }
 
     public String getName() {
         return name;
@@ -64,7 +67,7 @@ public class cafes {
         this.marca = marca;
     }
 
-    public cafes(String name, String sabores, String aromas, String cuerpo, String precio, String marca) {
+    public Cafes(String name, String sabores, String aromas, String cuerpo, String precio, String marca) {
         this.name = name;
         this.sabores = sabores;
         this.aromas = aromas;
@@ -73,18 +76,18 @@ public class cafes {
         this.marca = marca;
     }
 
-    public cafes(String name, String precio, String marca) {
+    public Cafes(String name, String precio, String marca) {
         this.name = name;
         this.precio = precio;
         this.marca = marca;
     }
 
-    public cafes(String name, String marca) {
+    public Cafes(String name, String marca) {
         this.name = name;
         this.marca = marca;
     }
 
-    public static void guardarCafe(cafes nuevo){
+    public static void guardarCafe(Cafes nuevo){
         Path path = Paths.get("Cafes.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
                 writer.write(nuevo.getName()+";"+nuevo.getMarca()+";"+nuevo.getPrecio());

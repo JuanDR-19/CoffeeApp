@@ -48,4 +48,18 @@ public class Archivos {
         }
     }
 
+    public static void guardarListaCArchivos(List<Cafes> cafesList) {
+
+        Path path = Paths.get("Cafes.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            for (Cafes item:cafesList) {
+                writer.write(item.getName()+";"+item.getPrecio()+";"+item.getMarca());
+                writer.write("\n");
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
 }
