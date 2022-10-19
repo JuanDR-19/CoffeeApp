@@ -47,7 +47,7 @@ public class RegistrarCotroller{
 
 
     @FXML
-    void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
+    public void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
         Usuario usuario = new Usuario();
         if(!Objects.equals(usuarioTextR.getText(), "") && !Objects.equals(passTextR.getText(), "")){
 
@@ -80,7 +80,7 @@ public class RegistrarCotroller{
     }
 
     @FXML
-    void volverinicio(ActionEvent event) {
+    public void volverinicio(ActionEvent event) {
         Stage volverInicioS =  (Stage) volver.getScene().getWindow();
         volverInicioS.close();
     }
