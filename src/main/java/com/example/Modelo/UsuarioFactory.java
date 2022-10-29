@@ -1,16 +1,16 @@
 package com.example.Modelo;
 
-public class Usuario {
+public class UsuarioFactory {
 
     private String userName;
     private String password;
 
-    public Usuario(String user,String pass){
+    public UsuarioFactory(String user, String pass){
         this.userName=user;
         this.password=pass;
     }
 
-    public Usuario(){
+    public UsuarioFactory(){
 
     }
 

@@ -4,16 +4,15 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class Archivos {
 
-    public static void guardarListaUArchivos(List<Usuario> usuarios){
+    public static void guardarListaUArchivos(List<UsuarioFactory> usuarioFactories){
         Path path = Paths.get("Usuarios.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            for (Usuario item:usuarios) {
+            for (UsuarioFactory item: usuarioFactories) {
                     writer.write(item.getUserName()+";"+item.getPassword());
                     writer.write("\n");
             }
@@ -25,7 +24,7 @@ public class Archivos {
     }
 
 
-    public static void llenarListaUsuario(List<Usuario> usuarios) throws FileNotFoundException {
+    public static void llenarListaUsuario(List<UsuarioFactory> usuarioFactories) throws FileNotFoundException {
         Path path = Paths.get("Usuarios.txt");
         File doc = new File(String.valueOf(path));
         BufferedReader obj = new BufferedReader(new FileReader(doc));
@@ -37,9 +36,9 @@ public class Archivos {
                 while(token.hasMoreTokens()){
                     String user= token.nextToken();
                     String pass= token.nextToken();
-                    Usuario nuevouser= new Usuario(user,pass);
-                    if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevouser.getUserName())))
-                        usuarios.add(nuevouser);
+                    UsuarioFactory nuevouser= new UsuarioFactory(user,pass);
+                    if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevouser.getUserName())))
+                        usuarioFactories.add(nuevouser);
                 }
             }
         } catch (IOException e) {

@@ -1,7 +1,7 @@
 package com.example.Controladores;
 
 import com.example.Modelo.Archivos;
-import com.example.Modelo.Usuario;
+import com.example.Modelo.UsuarioFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +14,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,19 +35,19 @@ public class HelloController {
     @FXML
     private TextField user;
 
-    List<Usuario> usuarios = new ArrayList<Usuario>();
+    List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
 
 
     public HelloController() throws FileNotFoundException {
-         Archivos.llenarListaUsuario(usuarios);
+         Archivos.llenarListaUsuario(usuarioFactories);
     }
 
 
     @FXML
     void iniciarsesion(ActionEvent event) {
         if(!Objects.equals(user.getText(), "") && !Objects.equals(password.getText(), "")){
-            if(usuarios.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
+            if(usuarioFactories.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
             )&& p.getPassword().equalsIgnoreCase(password.getText()))){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
                 try {
@@ -88,7 +87,7 @@ public class HelloController {
             RegistrarCotroller cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            usuarios = cont.getUsuarios();
+            usuarioFactories = cont.getUsuarios();
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

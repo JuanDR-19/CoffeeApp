@@ -2,16 +2,13 @@ package com.example.Controladores;
 
 
 import com.example.Modelo.Archivos;
-import com.example.Modelo.Usuario;
+import com.example.Modelo.UsuarioBarista;
+import com.example.Modelo.UsuarioConsumidor;
+import com.example.Modelo.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -21,8 +18,16 @@ import java.util.Objects;
 
 public class RegistrarCotroller{
 
+    private boolean barista=false;
+
+    @FXML
+    private CheckBox BaristaButton;
+
     @FXML
     private Button botonFinR;
+
+    @FXML
+    private CheckBox consumidorButton;
 
     @FXML
     private TextField usuarioTextR;
@@ -39,34 +44,61 @@ public class RegistrarCotroller{
     @FXML
     private Button volver;
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    @FXML
+    void crearUsuarioBarista(ActionEvent event) {
+        this.barista=true;
     }
 
-    List<Usuario> usuarios = new ArrayList<Usuario>();
+    @FXML
+    void crearUsuarioConsumidor(ActionEvent event) {
+        this.barista=false;
+    }
+
+    public List<UsuarioFactory> getUsuarios() {
+        return usuarioFactories;
+    }
+
+    List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
 
     @FXML
     public void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
-        Usuario usuario = new Usuario();
-        if(!Objects.equals(usuarioTextR.getText(), "") && !Objects.equals(passTextR.getText(), "")){
+        String pass= passTextR.getText();
+        String usr= usuarioTextR.getText();
 
-            usuario.setUserName(usuarioTextR.getText());
-            usuario.setPassword(passTextR.getText());
-            Archivos.llenarListaUsuario(usuarios);
+        if(!Objects.equals(usr, "") && !Objects.equals(pass, "")){
 
-            if(usuarios.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(usuario.getUserName()))){
-                usuarios.add(usuario);
-                usuarioTextR.setText("");
-                passTextR.setText("");
-                Archivos.guardarListaUArchivos(usuarios);
+            Archivos.llenarListaUsuario(usuarioFactories);
+            if(this.barista) {
+                UsuarioBarista nuevoBarista= new UsuarioBarista(usr,pass);
+                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoBarista.getUserName()))){
+                    usuarioFactories.add(nuevoBarista);
+                    usuarioTextR.setText("");
+                    passTextR.setText("");
+                    Archivos.guardarListaUArchivos(usuarioFactories);
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Fallo al crear un usuario");
+                    alert.setHeaderText("No se pudo crear el usuario");
+                    alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
+                    alert.setResizable(true);
+                    alert.showAndWait();
+                }
             }else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Fallo al crear un usuario");
-                alert.setHeaderText("No se pudo crear el usuario");
-                alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
-                alert.setResizable(true);
-                alert.showAndWait();
+                UsuarioConsumidor nuevoConsumidor= new UsuarioConsumidor(usr,pass);
+                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoConsumidor.getUserName()))){
+                    usuarioFactories.add(nuevoConsumidor);
+                    usuarioTextR.setText("");
+                    passTextR.setText("");
+                    Archivos.guardarListaUArchivos(usuarioFactories);
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Fallo al crear un usuario");
+                    alert.setHeaderText("No se pudo crear el usuario");
+                    alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
+                    alert.setResizable(true);
+                    alert.showAndWait();
+                }
             }
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

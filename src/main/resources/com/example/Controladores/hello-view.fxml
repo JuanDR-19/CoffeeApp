@@ -28,7 +28,7 @@
                   <Button fx:id="inicioSesion" layoutX="165.0" layoutY="304.0" mnemonicParsing="false" onAction="#iniciarsesion" text="Iniciar Sesion" />
                   <Button fx:id="registro" layoutX="38.0" layoutY="304.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
                   <PasswordField fx:id="password" layoutX="63.0" layoutY="214.0" promptText="Contraseña" />
-                  <TextField fx:id="user" layoutX="63.0" layoutY="174.0" promptText="usuario" />
+                  <TextField fx:id="user" layoutX="63.0" layoutY="174.0" promptText="usuarioFactory" />
                   <ImageView fitHeight="110.0" fitWidth="138.0" layoutX="104.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/granos.jpg" />

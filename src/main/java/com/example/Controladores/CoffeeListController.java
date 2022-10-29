@@ -1,7 +1,6 @@
 package com.example.Controladores;
 
 import com.example.Modelo.Cafes;
-import com.example.Modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
