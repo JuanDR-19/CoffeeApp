@@ -19,7 +19,7 @@ public class UsuarioBarista extends UsuarioFactory{
     }
 
     public UsuarioBarista(String user, String pass) { //constructor de baristas sin informacion
-        super(user, pass);
+        super(user, pass,'c');
         this.metodosPreferidos =null;
         this.cursos = null;
     }

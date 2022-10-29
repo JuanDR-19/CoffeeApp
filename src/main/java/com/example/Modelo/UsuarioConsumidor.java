@@ -16,7 +16,7 @@ public class UsuarioConsumidor extends UsuarioFactory{
     }
 
     public UsuarioConsumidor(String user, String pass) { //usuario sin cafes favoritos
-        super(user, pass);
+        super(user, pass,'c');
         this.cafesFavoritos = null;
     }
 
