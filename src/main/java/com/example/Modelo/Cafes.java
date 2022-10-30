@@ -1,5 +1,7 @@
 package com.example.Modelo;
 
+import com.example.Interfaces.CrearCafe;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +17,7 @@ public class Cafes {
     private String precio;
     private String marca;
 
-    public Cafes() {
+    public Cafes(){
 
     }
 
@@ -87,7 +89,7 @@ public class Cafes {
         this.marca = marca;
     }
 
-    public static void guardarCafe(Cafes nuevo){
+    public void guardarCafe(Cafes nuevo){
         Path path = Paths.get("Cafes.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
                 writer.write(nuevo.getName()+";"+nuevo.getMarca()+";"+nuevo.getPrecio());
