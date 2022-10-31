@@ -1,12 +1,19 @@
 package com.example.Controladores;
+import com.example.Interfaces.CrearCafes;
+import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Crear.CrearCafe;
+import com.example.Modelo.Crear.CrearUsuario;
 import com.example.Modelo.Object.Archivos;
 import com.example.Modelo.Object.Cafes;
+import com.example.Modelo.Object.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -34,48 +41,20 @@ public class AnadirCafesController {
     @FXML
     private TextField nameField;
 
-    List <Cafes> cafesList = new ArrayList<>();
+
+    List<Cafes> cafesList = new ArrayList<>();
+
+    public void annadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField, List<Cafes> cafesList) throws FileNotFoundException {
+        CrearCafes a = new CrearCafe();
+        a.AnadirCafe( event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField, cafesList);
+    }
+
     @FXML
-    void AnadirCafe(ActionEvent event) {
-        Cafes cafes = new Cafes();
-        if(!Objects.equals(nameField.getText(), "") && !Objects.equals(PrecioField.getText(), "") &&
-                !Objects.equals(MarcaField.getText(), "") && !Objects.equals(SaborField.getText(),"") &&
-                   !Objects.equals(CuerpoField.getText(),"") && !Objects.equals(AromaField.getText(),"")){
+    public void annadirCafesBoot(ActionEvent event) throws FileNotFoundException {
 
-            cafes.setMarca(MarcaField.getText());
-            cafes.setName(nameField.getText());
-            cafes.setPrecio(PrecioField.getText());
-
-            cafes.setSabores(SaborField.getText());
-            cafes.setCuerpo(CuerpoField.getText());
-            cafes.setAromas(AromaField.getText());
-            //Archivos.llenarListaUsuario(cafesList);
-
-            if(cafesList.stream().noneMatch(p -> p.getName().equalsIgnoreCase(cafes.getName()))){
-                cafesList.add(cafes);
-                MarcaField.setText("");
-                nameField.setText("");
-                PrecioField.setText("");
-                SaborField.setText("");
-                CuerpoField.setText("");
-                AromaField.setText("");
-                Archivos.guardarListaCArchivos(cafesList);
-            }else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Fallo al crear un cafe");
-                alert.setHeaderText("No se pudo crear el cafe");
-                alert.setContentText("el cafe que intenta registrar ya se encuentra dentro del sistema");
-                alert.setResizable(true);
-                alert.showAndWait();
-            }
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Fallo al crear un cafe");
-            alert.setHeaderText("No se pudo crear el cafe");
-            alert.setContentText("Por favor ingrese todos los campos");
-            alert.setResizable(true);
-            alert.showAndWait();
-        }
+        annadirCafe(event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField, cafesList);
 
     }
+
+
 }

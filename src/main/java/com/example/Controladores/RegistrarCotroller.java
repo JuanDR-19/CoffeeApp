@@ -63,10 +63,8 @@ public class RegistrarCotroller {
     List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
     public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, List<UsuarioFactory>  usuarioFactories , boolean barista) throws FileNotFoundException {
-
         CrearUsuarios a = new CrearUsuario();
         a.finalizarRegistro( event,  passTextR,  usuarioTextR,  usuarioFactories ,  barista);
-
     }
     @FXML
     public void registro(ActionEvent event) throws FileNotFoundException {
