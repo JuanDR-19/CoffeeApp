@@ -1,9 +1,9 @@
-package com.example.Modelo;
+package com.example.Modelo.Object;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioConsumidor extends UsuarioFactory{
+public class UsuarioConsumidor extends UsuarioFactory {
     private List<Cafes> cafesFavoritos = new ArrayList<>();
 
     public UsuarioConsumidor(String user, String pass, List<Cafes> cafesFavoritos) {

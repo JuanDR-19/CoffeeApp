@@ -1,6 +1,4 @@
-package com.example.Modelo;
-
-import com.example.Interfaces.CrearCafe;
+package com.example.Modelo.Object;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

@@ -1,7 +1,6 @@
 package com.example.Controladores;
-import com.example.Interfaces.CrearCafe;
-import com.example.Modelo.Archivos;
-import com.example.Modelo.Cafes;
+import com.example.Modelo.Object.Archivos;
+import com.example.Modelo.Object.Cafes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

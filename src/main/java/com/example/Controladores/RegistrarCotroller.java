@@ -1,10 +1,12 @@
 package com.example.Controladores;
 
 
-import com.example.Modelo.Archivos;
-import com.example.Modelo.UsuarioBarista;
-import com.example.Modelo.UsuarioConsumidor;
-import com.example.Modelo.UsuarioFactory;
+import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Crear.CrearUsuario;
+import com.example.Modelo.Object.Archivos;
+import com.example.Modelo.Object.UsuarioBarista;
+import com.example.Modelo.Object.UsuarioConsumidor;
+import com.example.Modelo.Object.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class RegistrarCotroller{
+public class RegistrarCotroller {
 
     private boolean barista=false;
 
@@ -60,55 +62,15 @@ public class RegistrarCotroller{
 
     List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
+    public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, List<UsuarioFactory>  usuarioFactories , boolean barista) throws FileNotFoundException {
 
+        CrearUsuarios a = new CrearUsuario();
+        a.finalizarRegistro( event,  passTextR,  usuarioTextR,  usuarioFactories ,  barista);
+
+    }
     @FXML
-    public void finalizarRegistro(ActionEvent event) throws FileNotFoundException {
-        String pass= passTextR.getText();
-        String usr= usuarioTextR.getText();
-
-        if(!Objects.equals(usr, "") && !Objects.equals(pass, "")){
-
-            Archivos.llenarListaUsuario(usuarioFactories);
-            if(this.barista) {
-                UsuarioBarista nuevoBarista= new UsuarioBarista(usr,pass);
-                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoBarista.getUserName()))){
-                    usuarioFactories.add(nuevoBarista);
-                    usuarioTextR.setText("");
-                    passTextR.setText("");
-                    Archivos.guardarListaUArchivos(usuarioFactories);
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Fallo al crear un usuario");
-                    alert.setHeaderText("No se pudo crear el usuario");
-                    alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
-                    alert.setResizable(true);
-                    alert.showAndWait();
-                }
-            }else{
-                UsuarioConsumidor nuevoConsumidor= new UsuarioConsumidor(usr,pass);
-                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoConsumidor.getUserName()))){
-                    usuarioFactories.add(nuevoConsumidor);
-                    usuarioTextR.setText("");
-                    passTextR.setText("");
-                    Archivos.guardarListaUArchivos(usuarioFactories);
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Fallo al crear un usuario");
-                    alert.setHeaderText("No se pudo crear el usuario");
-                    alert.setContentText("el usuario que intenta registrar ya se encuentra dentro del sistema");
-                    alert.setResizable(true);
-                    alert.showAndWait();
-                }
-            }
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Fallo al crear un usuario");
-            alert.setHeaderText("No se pudo crear el usuario");
-            alert.setContentText("No ingresó contraseña o usuario");
-            alert.setResizable(true);
-            alert.showAndWait();
-        }
-
+    public void registro(ActionEvent event) throws FileNotFoundException {
+        registros(event, passTextR, usuarioTextR, usuarioFactories, barista);
     }
 
     @FXML
@@ -116,5 +78,6 @@ public class RegistrarCotroller{
         Stage volverInicioS =  (Stage) volver.getScene().getWindow();
         volverInicioS.close();
     }
+
 
 }

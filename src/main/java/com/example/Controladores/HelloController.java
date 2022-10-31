@@ -1,7 +1,7 @@
 package com.example.Controladores;
 
-import com.example.Modelo.Archivos;
-import com.example.Modelo.UsuarioFactory;
+import com.example.Modelo.Object.Archivos;
+import com.example.Modelo.Object.UsuarioFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
