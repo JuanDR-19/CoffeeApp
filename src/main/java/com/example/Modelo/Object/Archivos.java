@@ -61,4 +61,29 @@ public class Archivos {
         }
 
     }
+
+    public static void llenarListaCafes(List<Cafes> cafesList) throws FileNotFoundException {
+        Path path = Paths.get("Cafes.txt");
+        File doc = new File(String.valueOf(path));
+        BufferedReader obj = new BufferedReader(new FileReader(doc));
+        String strng;
+
+        try  {
+            while ((strng = obj.readLine()) != null){
+                StringTokenizer token= new StringTokenizer(strng,";");
+                while(token.hasMoreTokens()){
+                    String name= token.nextToken();
+                    String precio= token.nextToken();
+                    String marca= token.nextToken();
+                    Cafes nuevoCafe= new Cafes(name, precio, marca);
+                    if(cafesList.stream().noneMatch(p -> p.getName().equalsIgnoreCase(nuevoCafe.getName())))
+                        cafesList.add(nuevoCafe);
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 }

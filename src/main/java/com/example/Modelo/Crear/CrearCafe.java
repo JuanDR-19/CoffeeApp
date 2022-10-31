@@ -7,17 +7,19 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Objects;
 
 public class CrearCafe implements CrearCafes{
 
-   public void AnadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField, List<Cafes> cafesList) {
+   public void AnadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField, List<Cafes> cafesList) throws FileNotFoundException {
         Cafes cafes = new Cafes();
         if(!Objects.equals(nameField.getText(), "") && !Objects.equals(PrecioField.getText(), "") &&
                 !Objects.equals(MarcaField.getText(), "") && !Objects.equals(SaborField.getText(),"") &&
                 !Objects.equals(CuerpoField.getText(),"") && !Objects.equals(AromaField.getText(),"")){
 
+            Archivos.llenarListaCafes(cafesList);
             cafes.setMarca(MarcaField.getText());
             cafes.setName(nameField.getText());
             cafes.setPrecio(PrecioField.getText());

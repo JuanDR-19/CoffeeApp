@@ -3,9 +3,6 @@ package com.example.Controladores;
 
 import com.example.Interfaces.CrearUsuarios;
 import com.example.Modelo.Crear.CrearUsuario;
-import com.example.Modelo.Object.Archivos;
-import com.example.Modelo.Object.UsuarioBarista;
-import com.example.Modelo.Object.UsuarioConsumidor;
 import com.example.Modelo.Object.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class RegistrarCotroller {
 

@@ -1,6 +1,7 @@
 package com.example.Controladores;
 
 import com.example.Modelo.Object.Archivos;
+import com.example.Modelo.Object.Cafes;
 import com.example.Modelo.Object.UsuarioFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,10 +38,11 @@ public class HelloController {
 
     List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
-
+    List<Cafes> cafesList = new ArrayList<>();
 
     public HelloController() throws FileNotFoundException {
-         Archivos.llenarListaUsuario(usuarioFactories);
+        Archivos.llenarListaUsuario(usuarioFactories);
+        Archivos.llenarListaCafes(cafesList);
     }
 
 
