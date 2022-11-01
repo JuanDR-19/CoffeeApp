@@ -1,5 +1,7 @@
 package com.example.Controladores;
 
+import com.example.Interfaces.AccederCafes;
+import com.example.Modelo.Acceder.AccesoCafes;
 import com.example.Modelo.Object.Cafes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,11 +41,13 @@ public class CoffeeListController {
     void AnadirCafe(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnadirCafes.fxml"));
         try {
+            AccederCafes b = new AccesoCafes();
             Parent root = loader.load();
-            AnadirCafesController cont = loader.getController();
+            //AnadirCafesController cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            cafesList = cont.cafesList;
+           // cafesList = b.getCafesList();
+            b.setCafesList(cafesList);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

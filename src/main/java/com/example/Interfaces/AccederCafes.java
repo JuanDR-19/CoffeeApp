@@ -8,6 +8,6 @@ import java.util.List;
 public interface AccederCafes {
 
      List<Cafes> getCafesList();
-
+     void setCafesList(List<Cafes> cafesList);
 
 }

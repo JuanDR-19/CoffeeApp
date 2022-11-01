@@ -1,6 +1,8 @@
 package com.example.Modelo.Crear;
 
+import com.example.Interfaces.AccederCafes;
 import com.example.Interfaces.CrearCafes;
+import com.example.Modelo.Acceder.AccesoCafes;
 import com.example.Modelo.Object.Archivos;
 import com.example.Modelo.Object.Cafes;
 import javafx.event.ActionEvent;
@@ -13,13 +15,16 @@ import java.util.Objects;
 
 public class CrearCafe implements CrearCafes{
 
-   public void AnadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField, List<Cafes> cafesList) throws FileNotFoundException {
-        Cafes cafes = new Cafes();
-        if(!Objects.equals(nameField.getText(), "") && !Objects.equals(PrecioField.getText(), "") &&
+   public void AnadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField) throws FileNotFoundException {
+       Cafes cafes = new Cafes();
+       AccederCafes b = new AccesoCafes();
+
+       if(!Objects.equals(nameField.getText(), "") && !Objects.equals(PrecioField.getText(), "") &&
                 !Objects.equals(MarcaField.getText(), "") && !Objects.equals(SaborField.getText(),"") &&
                 !Objects.equals(CuerpoField.getText(),"") && !Objects.equals(AromaField.getText(),"")){
 
-            Archivos.llenarListaCafes(cafesList);
+
+            Archivos.llenarListaCafes(b.getCafesList());
             cafes.setMarca(MarcaField.getText());
             cafes.setName(nameField.getText());
             cafes.setPrecio(PrecioField.getText());
@@ -27,17 +32,16 @@ public class CrearCafe implements CrearCafes{
             cafes.setSabores(SaborField.getText());
             cafes.setCuerpo(CuerpoField.getText());
             cafes.setAromas(AromaField.getText());
-            //Archivos.llenarListaUsuario(cafesList);
 
-            if(cafesList.stream().noneMatch(p -> p.getName().equalsIgnoreCase(cafes.getName()))){
-                cafesList.add(cafes);
+            if(b.getCafesList().stream().noneMatch(p -> p.getName().equalsIgnoreCase(cafes.getName()))){
+                b.getCafesList().add(cafes);
                 MarcaField.setText("");
                 nameField.setText("");
                 PrecioField.setText("");
                 SaborField.setText("");
                 CuerpoField.setText("");
                 AromaField.setText("");
-                Archivos.guardarListaCArchivos(cafesList);
+                Archivos.guardarListaCArchivos(b.getCafesList());
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Fallo al crear un cafe");

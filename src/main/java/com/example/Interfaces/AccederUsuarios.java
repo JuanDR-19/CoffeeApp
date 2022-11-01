@@ -7,4 +7,5 @@ import java.util.List;
 public interface AccederUsuarios {
     List<UsuarioFactory> getUsuarioFactoryList();
 
+    void setUsuarioFactoryList(List<UsuarioFactory> usuarioFactoryList);
 }

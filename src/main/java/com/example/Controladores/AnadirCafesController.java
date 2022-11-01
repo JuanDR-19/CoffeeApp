@@ -1,6 +1,8 @@
 package com.example.Controladores;
+import com.example.Interfaces.AccederCafes;
 import com.example.Interfaces.CrearCafes;
 import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Acceder.AccesoCafes;
 import com.example.Modelo.Crear.CrearCafe;
 import com.example.Modelo.Crear.CrearUsuario;
 import com.example.Modelo.Object.Archivos;
@@ -42,17 +44,15 @@ public class AnadirCafesController {
     private TextField nameField;
 
 
-    List<Cafes> cafesList = new ArrayList<>();
-
-    public void annadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField, List<Cafes> cafesList) throws FileNotFoundException {
+    public void annadirCafe(ActionEvent event, TextField nameField, TextField PrecioField, TextField MarcaField, TextField SaborField, TextField CuerpoField, TextField AromaField) throws FileNotFoundException {
         CrearCafes a = new CrearCafe();
-        a.AnadirCafe( event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField, cafesList);
+        a.AnadirCafe( event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField);
     }
 
     @FXML
     public void annadirCafesBoot(ActionEvent event) throws FileNotFoundException {
 
-        annadirCafe(event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField, cafesList);
+        annadirCafe(event, nameField, PrecioField,  MarcaField,  SaborField,  CuerpoField,  AromaField);
 
     }
 

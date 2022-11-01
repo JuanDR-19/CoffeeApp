@@ -1,6 +1,10 @@
 package com.example.Modelo.Crear;
 
+import com.example.Interfaces.AccederCafes;
+import com.example.Interfaces.AccederUsuarios;
 import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Acceder.AccesoCafes;
+import com.example.Modelo.Acceder.AccesoUsuarios;
 import com.example.Modelo.Object.Archivos;
 import com.example.Modelo.Object.UsuarioBarista;
 import com.example.Modelo.Object.UsuarioConsumidor;
@@ -17,20 +21,20 @@ import java.util.Objects;
 public class CrearUsuario implements CrearUsuarios {
 
 
-    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, List<UsuarioFactory>  usuarioFactories , boolean barista) throws FileNotFoundException {
+    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException {
         String pass= passTextR.getText();
         String usr= usuarioTextR.getText();
-
+        AccederUsuarios b = new AccesoUsuarios();
         if(!Objects.equals(usr, "") && !Objects.equals(pass, "")){
 
-            Archivos.llenarListaUsuario(usuarioFactories);
+            Archivos.llenarListaUsuario(b.getUsuarioFactoryList());
             if(barista) {
                 UsuarioBarista nuevoBarista= new UsuarioBarista(usr,pass);
-                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoBarista.getUserName()))){
-                    usuarioFactories.add(nuevoBarista);
+                if(b.getUsuarioFactoryList().stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoBarista.getUserName()))){
+                    b.getUsuarioFactoryList().add(nuevoBarista);
                     usuarioTextR.setText("");
                     passTextR.setText("");
-                    Archivos.guardarListaUArchivos(usuarioFactories);
+                    Archivos.guardarListaUArchivos(b.getUsuarioFactoryList());
                 }else{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Fallo al crear un usuario");
@@ -41,11 +45,11 @@ public class CrearUsuario implements CrearUsuarios {
                 }
             }else{
                 UsuarioConsumidor nuevoConsumidor= new UsuarioConsumidor(usr,pass);
-                if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoConsumidor.getUserName()))){
-                    usuarioFactories.add(nuevoConsumidor);
+                if(b.getUsuarioFactoryList().stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevoConsumidor.getUserName()))){
+                    b.getUsuarioFactoryList().add(nuevoConsumidor);
                     usuarioTextR.setText("");
                     passTextR.setText("");
-                    Archivos.guardarListaUArchivos(usuarioFactories);
+                    Archivos.guardarListaUArchivos(b.getUsuarioFactoryList());
                 }else{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Fallo al crear un usuario");

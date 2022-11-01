@@ -52,19 +52,15 @@ public class RegistrarCotroller {
         this.barista=false;
     }
 
-    public List<UsuarioFactory> getUsuarios() {
-        return usuarioFactories;
-    }
+    //List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
-    List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
-
-    public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, List<UsuarioFactory>  usuarioFactories , boolean barista) throws FileNotFoundException {
+    public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException {
         CrearUsuarios a = new CrearUsuario();
-        a.finalizarRegistro( event,  passTextR,  usuarioTextR,  usuarioFactories ,  barista);
+        a.finalizarRegistro( event,  passTextR,  usuarioTextR ,  barista);
     }
     @FXML
     public void registro(ActionEvent event) throws FileNotFoundException {
-        registros(event, passTextR, usuarioTextR, usuarioFactories, barista);
+        registros(event, passTextR, usuarioTextR, barista);
     }
 
     @FXML

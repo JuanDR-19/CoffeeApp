@@ -1,5 +1,10 @@
 package com.example.Controladores;
 
+import com.example.Interfaces.AccederCafes;
+import com.example.Interfaces.AccederUsuarios;
+import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Acceder.AccesoUsuarios;
+import com.example.Modelo.Crear.CrearUsuario;
 import com.example.Modelo.Object.Archivos;
 import com.example.Modelo.Object.Cafes;
 import com.example.Modelo.Object.UsuarioFactory;
@@ -85,11 +90,14 @@ public class HelloController {
     void registrarse(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Registrar.fxml"));
         try {
+
+            AccederUsuarios b = new AccesoUsuarios();
             Parent root = loader.load();
             RegistrarCotroller cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            usuarioFactories = cont.getUsuarios();
+            //usuarioFactories = cont.getUsuarios()
+            b.setUsuarioFactoryList(usuarioFactories);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

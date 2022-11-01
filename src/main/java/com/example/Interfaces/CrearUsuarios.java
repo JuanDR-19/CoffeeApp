@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface CrearUsuarios {
 
-    void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, List<UsuarioFactory>  usuarioFactories, boolean barista) throws FileNotFoundException;
+    void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException;
 
 }
