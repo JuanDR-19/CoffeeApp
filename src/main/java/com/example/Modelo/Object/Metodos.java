@@ -2,7 +2,7 @@ package com.example.Modelo.Object;
 
 public class Metodos {
 
-    private String nombre="";
+    private String nombre;
 
     public Metodos(String nombre) { //no puede existir un constructor vacio
         this.nombre = nombre;

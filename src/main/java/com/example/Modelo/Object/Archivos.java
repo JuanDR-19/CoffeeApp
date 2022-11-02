@@ -24,13 +24,14 @@ public class Archivos {
     }
 
 
-    public static void llenarListaUsuario(List<UsuarioFactory> usuarioFactories) throws FileNotFoundException {
-        Path path = Paths.get("Usuarios.txt");
-        File doc = new File(String.valueOf(path));
-        BufferedReader obj = new BufferedReader(new FileReader(doc));
-        String strng;
+    public static void llenarListaUsuario(List<UsuarioFactory> usuarioFactories)  {
 
         try  {
+            Path path = Paths.get("Usuarios.txt");
+            File doc = new File(String.valueOf(path));
+            BufferedReader obj = new BufferedReader(new FileReader(doc));
+            String strng;
+
             while ((strng = obj.readLine()) != null){
                 StringTokenizer token= new StringTokenizer(strng,";");
                 while(token.hasMoreTokens()){

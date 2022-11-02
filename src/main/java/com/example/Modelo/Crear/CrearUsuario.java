@@ -1,27 +1,21 @@
 package com.example.Modelo.Crear;
 
-import com.example.Interfaces.AccederCafes;
 import com.example.Interfaces.AccederUsuarios;
 import com.example.Interfaces.CrearUsuarios;
-import com.example.Modelo.Acceder.AccesoCafes;
 import com.example.Modelo.Acceder.AccesoUsuarios;
 import com.example.Modelo.Object.Archivos;
 import com.example.Modelo.Object.UsuarioBarista;
 import com.example.Modelo.Object.UsuarioConsumidor;
-import com.example.Modelo.Object.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
-import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Objects;
 
 public class CrearUsuario implements CrearUsuarios {
 
 
-    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException {
+    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista)  {
         String pass= passTextR.getText();
         String usr= usuarioTextR.getText();
         AccederUsuarios b = new AccesoUsuarios();

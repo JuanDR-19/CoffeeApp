@@ -2,64 +2,49 @@ package com.example.Controladores;
 
 import com.example.Interfaces.AccederCafes;
 import com.example.Interfaces.AccederUsuarios;
-import com.example.Interfaces.CrearUsuarios;
+import com.example.Modelo.Acceder.AccesoCafes;
 import com.example.Modelo.Acceder.AccesoUsuarios;
-import com.example.Modelo.Crear.CrearUsuario;
 import com.example.Modelo.Object.Archivos;
-import com.example.Modelo.Object.Cafes;
-import com.example.Modelo.Object.UsuarioFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
-import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class HelloController {
 
     @FXML
-    private Button inicioSesion;
-
-    @FXML
     private PasswordField password;
-
-    @FXML
-    private Button registro;
 
     @FXML
     private TextField user;
 
-    List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
-    List<Cafes> cafesList = new ArrayList<>();
+    private final AccederUsuarios asuarios = new AccesoUsuarios();
+
 
     public HelloController() throws FileNotFoundException {
-        Archivos.llenarListaUsuario(usuarioFactories);
-        Archivos.llenarListaCafes(cafesList);
+        AccederCafes bcafes = new AccesoCafes();
+        Archivos.llenarListaCafes(bcafes.getCafesList());
     }
 
 
     @FXML
-    void iniciarsesion(ActionEvent event) {
+    void iniciarsesion() {
+        Archivos.llenarListaUsuario(asuarios.getUsuarioFactoryList());
         if(!Objects.equals(user.getText(), "") && !Objects.equals(password.getText(), "")){
-            if(usuarioFactories.stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
+            if(asuarios.getUsuarioFactoryList().stream().anyMatch(p -> p.getUserName().equalsIgnoreCase(user.getText()
             )&& p.getPassword().equalsIgnoreCase(password.getText()))){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
                 try {
                     Parent root = loader.load();
-                    //CoffeeAppController cont = loader.getController();
                     Scene sceneReg = new Scene(root);
                     Stage stageReg = new Stage();
                     stageReg.initModality(Modality.APPLICATION_MODAL);
@@ -87,17 +72,12 @@ public class HelloController {
     }
 
     @FXML
-    void registrarse(ActionEvent event) {
+    void registrarse() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Registrar.fxml"));
         try {
-
-            AccederUsuarios b = new AccesoUsuarios();
             Parent root = loader.load();
-            RegistrarCotroller cont = loader.getController();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            //usuarioFactories = cont.getUsuarios()
-            b.setUsuarioFactoryList(usuarioFactories);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
             stageReg.showAndWait();

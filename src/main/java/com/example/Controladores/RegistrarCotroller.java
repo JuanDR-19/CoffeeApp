@@ -1,18 +1,12 @@
 package com.example.Controladores;
-
-
 import com.example.Interfaces.CrearUsuarios;
 import com.example.Modelo.Crear.CrearUsuario;
-import com.example.Modelo.Object.UsuarioFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegistrarCotroller {
 
@@ -52,7 +46,6 @@ public class RegistrarCotroller {
         this.barista=false;
     }
 
-    //List<UsuarioFactory> usuarioFactories = new ArrayList<UsuarioFactory>();
 
     public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException {
         CrearUsuarios a = new CrearUsuario();
