@@ -38,8 +38,19 @@ public class CoffeeAppController {
 
     @FXML
     void CerrarSesion(ActionEvent event) {
-        Stage CerrarSesionx =  (Stage) cerrarSesion.getScene().getWindow();
-        CerrarSesionx.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene sceneReg = new Scene(root);
+            Stage stageReg = new Stage();
+            stageReg.setScene(sceneReg);
+            stageReg.setResizable(false);
+            stageReg.show();
+            Stage myStage = (Stage) this.cerrarSesion.getScene().getWindow();
+            myStage.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void accesoMetodos(ActionEvent event) {
@@ -48,17 +59,21 @@ public class CoffeeAppController {
 
     @FXML
     void ingresoRecetas(ActionEvent event) {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Cafes.fxml"));
         try {
             Parent root = loader.load();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
-            stageReg.showAndWait();
+            stageReg.setResizable(false);
+            stageReg.show();
+            Stage myStage = (Stage) this.botonrecetas.getScene().getWindow();
+            myStage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 }

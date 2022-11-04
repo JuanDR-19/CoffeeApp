@@ -35,15 +35,15 @@ public class CoffeeListController {
 
     @FXML
     void AnadirCafe() {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnadirCafes.fxml"));
         try {
-            AccederCafes b = new AccesoCafes();
             Parent root = loader.load();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-           // cafesList = b.getCafesList(); b.setCafesList(cafesList);
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
+            stageReg.setResizable(false);
             stageReg.showAndWait();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -52,8 +52,19 @@ public class CoffeeListController {
 
     @FXML
     void regresarInicio() {
-        Stage volverInicioS =  (Stage) botonVolver.getScene().getWindow();
-        volverInicioS.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene sceneReg = new Scene(root);
+            Stage stageReg = new Stage();
+            stageReg.setScene(sceneReg);
+            stageReg.setResizable(false);
+            stageReg.show();
+            Stage myStage = (Stage) this.botonVolver.getScene().getWindow();
+            myStage.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

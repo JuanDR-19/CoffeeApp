@@ -23,7 +23,6 @@ public class Archivos {
 
     }
 
-
     public static void llenarListaUsuario(List<UsuarioFactory> usuarioFactories)  {
 
         try  {

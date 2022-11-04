@@ -21,12 +21,11 @@ public class CrearCafe implements CrearCafes{
                 !Objects.equals(MarcaField.getText(), "") && !Objects.equals(SaborField.getText(),"") &&
                 !Objects.equals(CuerpoField.getText(),"") && !Objects.equals(AromaField.getText(),"")){
 
-
             Archivos.llenarListaCafes(b.getCafesList());
+
             cafes.setMarca(MarcaField.getText());
             cafes.setName(nameField.getText());
             cafes.setPrecio(PrecioField.getText());
-
             cafes.setSabores(SaborField.getText());
             cafes.setCuerpo(CuerpoField.getText());
             cafes.setAromas(AromaField.getText());

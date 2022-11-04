@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.HelloController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.HelloController">
    <children>
-      <SplitPane dividerPositions="0.5183946488294314" layoutX="181.0" layoutY="120.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <ImageView fitHeight="407.0" fitWidth="316.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/PORTADA.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Circle fill="#69503c" layoutX="143.0" layoutY="398.0" radius="252.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button fx:id="inicioSesion" layoutX="165.0" layoutY="304.0" mnemonicParsing="false" onAction="#iniciarsesion" text="Iniciar Sesion" />
-                  <Button fx:id="registro" layoutX="38.0" layoutY="304.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
-                  <PasswordField fx:id="password" layoutX="63.0" layoutY="214.0" promptText="Contraseña" />
-                  <TextField fx:id="user" layoutX="63.0" layoutY="174.0" promptText="usuarioFactory" />
-                  <ImageView fitHeight="110.0" fitWidth="138.0" layoutX="104.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/granos.jpg" />
-                     </image>
-                  </ImageView>
-                  <Circle fill="#a18262" layoutX="143.0" layoutY="473.0" radius="135.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <Circle fill="#69503c" layoutX="455.0" layoutY="438.0" radius="252.0" smooth="false" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a18262" layoutX="453.0" layoutY="456.0" radius="158.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="inicioSesion" layoutX="455.0" layoutY="357.0" mnemonicParsing="false" onAction="#iniciarsesion" text="Iniciar Sesion" />
+      <Button fx:id="registro" layoutX="354.0" layoutY="357.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
+      <TextField fx:id="user" layoutX="375.0" layoutY="222.0" promptText="usuarioFactory" />
+      <PasswordField fx:id="password" layoutX="375.0" layoutY="266.0" promptText="Contraseña" />
+      <ImageView fitHeight="110.0" fitWidth="138.0" layoutX="408.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/granos.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="407.0" fitWidth="306.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/PORTADA.png" />
+         </image>
+      </ImageView>
+      <Text fill="#17160c" layoutX="370.0" layoutY="72.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Coffe~App" textAlignment="CENTER">
+         <font>
+            <Font name="Optima Regular" size="36.0" />
+         </font>
+      </Text>
+      <Line endX="-14.0" endY="358.0" layoutX="320.0" layoutY="39.0" startX="-14.0" startY="-45.0" strokeWidth="10.0" />
+      <Line endX="-329.5" endY="-49.0" layoutX="330.0" layoutY="49.0" startX="270.0" startY="-49.0" strokeWidth="10.0" />
+      <Line endX="270.0" endY="351.0" layoutX="330.0" layoutY="49.0" startX="270.0" startY="-49.0" strokeWidth="10.0" />
+      <Line endX="-328.5" endY="351.0" layoutX="330.0" layoutY="49.0" startX="265.0" startY="351.0" strokeWidth="10.0" />
+      <Line endX="-330.0" endY="347.0" layoutX="330.0" layoutY="49.0" startX="-330.0" startY="-44.0" strokeWidth="10.0" />
+      <CheckBox fx:id="checkBarista" layoutX="363.0" layoutY="326.0" mnemonicParsing="false" text="Barista" textFill="#fcfcfc" />
+      <CheckBox fx:id="checkConsumidor" layoutX="454.0" layoutY="326.0" mnemonicParsing="false" text="Consumidor" textFill="#ebe7e7" />
    </children>
 </AnchorPane>

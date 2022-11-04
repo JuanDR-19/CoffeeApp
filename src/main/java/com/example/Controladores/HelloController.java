@@ -7,11 +7,13 @@ import com.example.Modelo.Acceder.AccesoUsuarios;
 import com.example.Modelo.Object.Archivos;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.skin.SplitPaneSkin;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.FileNotFoundException;
@@ -19,6 +21,18 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class HelloController {
+
+    @FXML
+    private Button inicioSesion;
+
+    @FXML
+    private CheckBox checkConsumidor;
+
+    @FXML
+    private CheckBox checkBarista;
+
+    @FXML
+    private Button registro;
 
     @FXML
     private PasswordField password;
@@ -35,7 +49,6 @@ public class HelloController {
         Archivos.llenarListaCafes(bcafes.getCafesList());
     }
 
-
     @FXML
     void iniciarsesion() {
         Archivos.llenarListaUsuario(asuarios.getUsuarioFactoryList());
@@ -47,9 +60,10 @@ public class HelloController {
                     Parent root = loader.load();
                     Scene sceneReg = new Scene(root);
                     Stage stageReg = new Stage();
-                    stageReg.initModality(Modality.APPLICATION_MODAL);
                     stageReg.setScene(sceneReg);
                     stageReg.show();
+                    Stage myStage = (Stage) this.inicioSesion.getScene().getWindow();
+                    myStage.close();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -78,9 +92,10 @@ public class HelloController {
             Parent root = loader.load();
             Scene sceneReg = new Scene(root);
             Stage stageReg = new Stage();
-            stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(sceneReg);
-            stageReg.showAndWait();
+            stageReg.show();
+            Stage myStage = (Stage) this.registro.getScene().getWindow();
+            myStage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
