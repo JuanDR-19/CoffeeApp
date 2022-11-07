@@ -13,7 +13,7 @@ public class Archivos {
         Path path = Paths.get("Usuarios.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (UsuarioFactory item: usuarioFactories) {
-                    writer.write(item.getUserName()+";"+item.getPassword());
+                    writer.write(item.getUserName()+";"+item.getPassword()+";"+item.getTipo());
                     writer.write("\n");
             }
         } catch (IOException e) {
@@ -36,7 +36,8 @@ public class Archivos {
                 while(token.hasMoreTokens()){
                     String user= token.nextToken();
                     String pass= token.nextToken();
-                    UsuarioFactory nuevouser= new UsuarioFactory(user,pass);
+                    String tip = token.nextToken();
+                    UsuarioFactory nuevouser= new UsuarioFactory(user,pass,tip);
                     if(usuarioFactories.stream().noneMatch(p -> p.getUserName().equalsIgnoreCase(nuevouser.getUserName())))
                         usuarioFactories.add(nuevouser);
                 }

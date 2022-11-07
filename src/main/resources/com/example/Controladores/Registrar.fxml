@@ -12,20 +12,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.RegistrarCotroller">
    <children>
-      <Text layoutX="70.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar" wrappingWidth="73.7626953125">
+      <Text layoutX="70.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar" wrappingWidth="73.7626953125">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="usuarioTextR" layoutX="123.0" layoutY="130.0" />
+      <TextField fx:id="usuarioTextR" layoutX="123.0" layoutY="109.0" />
+      <PasswordField fx:id="passTextR" layoutX="123.0" layoutY="153.0" />
+      <CheckBox fx:id="BaristaButton" layoutX="64.0" layoutY="243.0" mnemonicParsing="false" text="Barista" />
       <Button fx:id="botonFinR" layoutX="123.0" layoutY="295.0" mnemonicParsing="false" onAction="#registro" text="Registrarse" />
-      <Text layoutX="64.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
-      <Text layoutX="43.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
       <Button fx:id="volver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#volverinicio" text="Regresar" textFill="#861010">
          <font>
             <Font name="Beirut Regular" size="13.0" />
          </font>
       </Button>
+      <Text layoutX="64.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+      <Text layoutX="43.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
       <ImageView fx:id="imagenregistro" fitHeight="150.0" fitWidth="200.0" layoutX="334.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/registro.png" />
@@ -36,8 +38,6 @@
             <Image url="@../../../images/registro2.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="passTextR" layoutX="123.0" layoutY="174.0" />
-      <CheckBox fx:id="BaristaButton" layoutX="69.0" layoutY="243.0" mnemonicParsing="false" onAction="#crearUsuarioBarista" text="Barista" />
-      <CheckBox fx:id="consumidorButton" layoutX="190.0" layoutY="243.0" mnemonicParsing="false" onAction="#crearUsuarioConsumidor" text="Consumidor" />
+      <Text layoutX="64.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si quiere crear la cuenta como Barista marque la siguiente casilla" wrappingWidth="254.98046875" />
    </children>
 </AnchorPane>

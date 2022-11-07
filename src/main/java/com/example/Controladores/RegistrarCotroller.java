@@ -16,16 +16,13 @@ import java.io.IOException;
 
 public class RegistrarCotroller {
 
-    private boolean barista=false;
+    private final boolean barista=false;
 
     @FXML
     private CheckBox BaristaButton;
 
     @FXML
     private Button botonFinR;
-
-    @FXML
-    private CheckBox consumidorButton;
 
     @FXML
     private TextField usuarioTextR;
@@ -42,25 +39,14 @@ public class RegistrarCotroller {
     @FXML
     private Button volver;
 
-    @FXML
-    void crearUsuarioBarista(ActionEvent event) {
-        this.barista=true;
-    }
 
-    @FXML
-    void crearUsuarioConsumidor(ActionEvent event) {
-        this.barista=false;
-    }
-
-
-
-    public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista) throws FileNotFoundException {
+    public void registros(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, CheckBox BaristaButton ) throws FileNotFoundException {
         CrearUsuarios a = new CrearUsuario();
-        a.finalizarRegistro( event,  passTextR,  usuarioTextR ,  barista);
+        a.finalizarRegistro( event,  passTextR,  usuarioTextR , BaristaButton );
     }
     @FXML
     public void registro(ActionEvent event) throws FileNotFoundException {
-        registros(event, passTextR, usuarioTextR, barista);
+        registros(event, passTextR, usuarioTextR, BaristaButton);
     }
 
     @FXML

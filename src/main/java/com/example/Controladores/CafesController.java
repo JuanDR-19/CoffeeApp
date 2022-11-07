@@ -1,7 +1,5 @@
 package com.example.Controladores;
 
-import com.example.Interfaces.AccederCafes;
-import com.example.Modelo.Acceder.AccesoCafes;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CoffeeListController {
+public class CafesController {
 
     @FXML
     private Button AnadirBoton;
@@ -30,8 +28,6 @@ public class CoffeeListController {
 
     @FXML
     private ImageView cafe2;
-
-    //List<Cafes> cafesList = new ArrayList<Cafes>();
 
     @FXML
     void AnadirCafe() {
@@ -52,7 +48,7 @@ public class CoffeeListController {
 
     @FXML
     void regresarInicio() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CoffeeApp.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("InicioBarista.fxml"));
         try {
             Parent root = loader.load();
             Scene sceneReg = new Scene(root);

@@ -4,14 +4,14 @@ public class UsuarioFactory {
 
     private String userName;
     private String password;
-    private char tipo;
+    private String tipo;
 
     public UsuarioFactory(String user, String pass){
         this.userName=user;
         this.password=pass;
     }
 
-    public UsuarioFactory(String userName, String password, char tipo) {
+    public UsuarioFactory(String userName, String password, String tipo) {
         this.userName = userName;
         this.password = password;
         this.tipo = tipo;
@@ -37,11 +37,11 @@ public class UsuarioFactory {
         this.userName = userName;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 }

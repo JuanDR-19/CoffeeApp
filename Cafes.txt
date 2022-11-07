@@ -1,10 +1,1 @@
-basd;700;dkasjd
-omen;100;valorant
-raze;300;uwu
-holi;500;tu
-afafaf;ckkff;afagag
-mio;pol;aafaf
-adad;ilo;fagga
-hola;yo;soy
-zaa;cc;bb
-limon;100;aaa
+

@@ -8,12 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CoffeeAppController {
+public class InicioBaristaController {
 
     @FXML
     private Button botonrecetas;

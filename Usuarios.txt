@@ -1,7 +1,0 @@
-hhh;12
-hola;789
-aa;12
-andres;12
-holas;987
-gato;89
-gata;89

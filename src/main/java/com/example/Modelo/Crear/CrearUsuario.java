@@ -8,6 +8,7 @@ import com.example.Modelo.Object.UsuarioBarista;
 import com.example.Modelo.Object.UsuarioConsumidor;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.util.Objects;
@@ -15,12 +16,13 @@ import java.util.Objects;
 public class CrearUsuario implements CrearUsuarios {
 
 
-    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, boolean barista)  {
+    public void finalizarRegistro(ActionEvent event, PasswordField passTextR, TextField usuarioTextR, CheckBox BaristaButton)  {
         String pass= passTextR.getText();
         String usr= usuarioTextR.getText();
+        boolean barista;
+        barista = BaristaButton.isSelected(); // verificar si es o no barista
         AccederUsuarios b = new AccesoUsuarios();
         if(!Objects.equals(usr, "") && !Objects.equals(pass, "")){
-
             Archivos.llenarListaUsuario(b.getUsuarioFactoryList());
             if(barista) {
                 UsuarioBarista nuevoBarista= new UsuarioBarista(usr,pass);

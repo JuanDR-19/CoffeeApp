@@ -7,7 +7,7 @@ public class UsuarioConsumidor extends UsuarioFactory {
     private List<Cafes> cafesFavoritos = new ArrayList<>();
 
     public UsuarioConsumidor(String user, String pass, List<Cafes> cafesFavoritos) {
-        super(user, pass);
+        super(user, pass, "Consumidor");
         this.cafesFavoritos = cafesFavoritos;
     }
 
@@ -16,7 +16,7 @@ public class UsuarioConsumidor extends UsuarioFactory {
     }
 
     public UsuarioConsumidor(String user, String pass) { //usuario sin cafes favoritos
-        super(user, pass,'c');
+        super(user, pass, "Consumidor");
         this.cafesFavoritos = null;
     }
 

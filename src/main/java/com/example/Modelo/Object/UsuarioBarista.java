@@ -8,7 +8,7 @@ public class UsuarioBarista extends UsuarioFactory {
     private List<Cursos> cursos= new ArrayList<>();
 
     public UsuarioBarista(String user, String pass, List<Metodos> metodosPreferidos, List<Cursos> cursos) {
-        super(user, pass);
+        super(user, pass, "Barista");
         this.metodosPreferidos = metodosPreferidos;
         this.cursos = cursos;
     }
@@ -19,7 +19,7 @@ public class UsuarioBarista extends UsuarioFactory {
     }
 
     public UsuarioBarista(String user, String pass) { //constructor de baristas sin informacion
-        super(user, pass,'c');
+        super(user, pass, "Barista");
         this.metodosPreferidos =null;
         this.cursos = null;
     }

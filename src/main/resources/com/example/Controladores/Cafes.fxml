@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.CoffeeListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.CafesController">
    <children>
       <Button fx:id="botonVolver" layoutX="35.0" layoutY="29.0" mnemonicParsing="false" onAction="#regresarInicio" text="Volver" textFill="#972828" />
       <ListView fx:id="ListaCafes" layoutX="43.0" layoutY="109.0" prefHeight="223.0" prefWidth="219.0" />
