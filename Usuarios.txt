@@ -1,0 +1,3 @@
+danipipi;123456789;Barista
+kkk;777;Barista
+kkkk;7777;Consumidor
