@@ -1,4 +1,4 @@
-package com.example.Preubas;
+package com.example.Modelo.Object;
 
 import com.example.Modelo.Object.UsuarioBarista;
 import com.example.Modelo.Object.UsuarioFactory;

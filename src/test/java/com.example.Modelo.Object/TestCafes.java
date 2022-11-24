@@ -1,4 +1,4 @@
-package com.example.Preubas;
+package com.example.Modelo.Object;
 
 import com.example.Modelo.Object.Cafes;
 import org.junit.jupiter.api.Test;
