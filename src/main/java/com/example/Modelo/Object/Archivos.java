@@ -9,6 +9,9 @@ import java.util.StringTokenizer;
 
 public class Archivos {
 
+    public Archivos() {
+    }
+
     public static void guardarListaUArchivos(List<UsuarioFactory> usuarioFactories){
         Path path = Paths.get("Usuarios.txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {

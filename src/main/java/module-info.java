@@ -10,6 +10,7 @@ module com.example.coffeeapp {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires org.junit.jupiter.api;
 
     opens com.example.Controladores to javafx.fxml;
     exports com.example.Controladores;

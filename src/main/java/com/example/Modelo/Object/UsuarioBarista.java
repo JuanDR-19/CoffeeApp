@@ -7,6 +7,10 @@ public class UsuarioBarista extends UsuarioFactory {
     private List<Metodos> metodosPreferidos= new ArrayList<>();
     private List<Cursos> cursos= new ArrayList<>();
 
+    public UsuarioBarista() {
+
+    }
+
     public UsuarioBarista(String user, String pass, List<Metodos> metodosPreferidos, List<Cursos> cursos) {
         super(user, pass, "Barista");
         this.metodosPreferidos = metodosPreferidos;

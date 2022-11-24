@@ -87,15 +87,5 @@ public class Cafes {
         this.marca = marca;
     }
 
-    public void guardarCafe(Cafes nuevo){
-        Path path = Paths.get("Cafes.txt");
-        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-                writer.write(nuevo.getName()+";"+nuevo.getMarca()+";"+nuevo.getPrecio());
-                writer.write("\n");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
 }
