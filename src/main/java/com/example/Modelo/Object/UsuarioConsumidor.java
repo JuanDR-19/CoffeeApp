@@ -6,6 +6,9 @@ import java.util.List;
 public class UsuarioConsumidor extends UsuarioFactory {
     private List<Cafes> cafesFavoritos = new ArrayList<>();
 
+    public UsuarioConsumidor() {
+    }
+
     public UsuarioConsumidor(String user, String pass, List<Cafes> cafesFavoritos) {
         super(user, pass, "Consumidor");
         this.cafesFavoritos = cafesFavoritos;

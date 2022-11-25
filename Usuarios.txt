@@ -1,1 +1,1 @@
-aaa;bbb;null
+Andres;12;Consumidor

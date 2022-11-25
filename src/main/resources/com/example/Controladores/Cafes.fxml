@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controladores.CafesController">
    <children>
       <Button fx:id="botonVolver" layoutX="35.0" layoutY="29.0" mnemonicParsing="false" onAction="#regresarInicio" text="Volver" textFill="#972828" />
-      <ListView fx:id="ListaCafes" layoutX="43.0" layoutY="109.0" prefHeight="223.0" prefWidth="219.0" />
+      <ListView fx:id="ListaCafes" layoutX="43.0" layoutY="89.0" prefHeight="223.0" prefWidth="219.0" />
       <ImageView fx:id="cafe1" fitHeight="223.0" fitWidth="219.0" layoutX="290.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/cafe2.png" />
@@ -21,7 +21,8 @@
             <Image url="@../../../images/cafe1.png" />
          </image>
       </ImageView>
-      <Label layoutX="109.0" layoutY="78.0" text="Tu lista de cafes" />
-      <Button fx:id="AnadirBoton" layoutX="104.0" layoutY="350.0" mnemonicParsing="false" onAction="#AnadirCafe" text="Añadir un café" />
+      <Label layoutX="109.0" layoutY="70.0" text="Tu lista de cafes" />
+      <Button fx:id="AnadirBoton" layoutX="105.0" layoutY="360.0" mnemonicParsing="false" onAction="#AnadirCafe" text="Añadir un café" />
+      <Button fx:id="mostrarCafes" layoutX="107.0" layoutY="324.0" mnemonicParsing="false" onAction="#MostrarlistaCafes" text="Mostrar cafés" />
    </children>
 </AnchorPane>

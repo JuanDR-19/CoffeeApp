@@ -4,6 +4,9 @@ public class Metodos {
 
     private String nombre;
 
+    public Metodos() {
+    }
+
     public Metodos(String nombre) { //no puede existir un constructor vacio
         this.nombre = nombre;
     }

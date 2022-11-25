@@ -16,7 +16,6 @@ public class Cafes {
     private String marca;
 
     public Cafes(){
-
     }
 
     public String getName() {

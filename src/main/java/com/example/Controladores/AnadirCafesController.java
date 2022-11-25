@@ -1,17 +1,13 @@
 package com.example.Controladores;
+
 import com.example.Interfaces.CrearCafes;
 import com.example.Modelo.Crear.CrearCafe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class AnadirCafesController {
 

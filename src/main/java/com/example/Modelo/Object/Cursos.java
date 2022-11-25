@@ -13,6 +13,10 @@ public class Cursos {
         this.fechaFinalizacion = fechaFinalizacion;
     }
 
+    public Cursos() {
+
+    }
+
     public String getNombre() {
         return nombre;
     }

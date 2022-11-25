@@ -12,10 +12,18 @@ class TestUsuario {
 
 
     @Test
-    public void usuarioBaris(){
+    public void usuario(){
         UsuarioFactory a = new UsuarioFactory();
         a.setUserName("Andy");
         assertEquals("Andy", a.getUserName());
+
+        a.setTipo("Aaaa");
+        assertEquals("Aaaa", a.getTipo());
+
+        a.setPassword("ooo");
+        assertEquals("ooo", a.getPassword());
+
+
     }
 
 }

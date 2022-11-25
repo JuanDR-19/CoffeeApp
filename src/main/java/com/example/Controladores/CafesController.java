@@ -1,5 +1,9 @@
 package com.example.Controladores;
 
+import com.example.Interfaces.AccederCafes;
+import com.example.Modelo.Acceder.AccesoCafes;
+import com.example.Modelo.Object.Archivos;
+import com.example.Modelo.Object.Cafes;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public class CafesController {
 
@@ -18,7 +24,7 @@ public class CafesController {
     private Button AnadirBoton;
 
     @FXML
-    private ListView<?> ListaCafes;
+    private ListView<String> ListaCafes;
 
     @FXML
     private Button botonVolver;
@@ -28,6 +34,8 @@ public class CafesController {
 
     @FXML
     private ImageView cafe2;
+
+    int cont = 0;
 
     @FXML
     void AnadirCafe() {
@@ -44,7 +52,20 @@ public class CafesController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
+
+    @FXML
+    void MostrarlistaCafes() throws FileNotFoundException {
+
+        AccederCafes a = new AccesoCafes();
+        Archivos.llenarListaCafes(a.getCafesList());
+        for(Cafes nom : a.getCafesList()) {
+            ListaCafes.getItems().add(nom.getName());
+        }
+
+    }
+
 
     @FXML
     void regresarInicio() {
